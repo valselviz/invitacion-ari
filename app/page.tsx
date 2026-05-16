@@ -119,7 +119,7 @@ export default function Home() {
 
               {/* TEXTO */}
               <div className="max-w-xl text-center md:text-left">
-                <p className="text-gold-light mb-4 text-sm uppercase tracking-[0.3em]">
+                <p className="text-navy mb-4 text-sm uppercase tracking-[0.3em]">
                   Una noche especial
                 </p>
 
@@ -133,7 +133,7 @@ export default function Home() {
                 <br />
                 <br />
 
-                <h2 className="font-gistesy text-navy mb-8 text-4xl md:text-6xl">
+                <h2 className="font-gistesy text-gold mb-8 text-4xl md:text-6xl">
                   Ariadna Ruibal
                 </h2>
 
