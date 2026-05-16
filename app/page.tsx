@@ -6,6 +6,16 @@ import Image from "next/image";
 export default function Home() {
   const [opacity, setOpacity] = useState(1);
 
+  const copyAccount = async () => {
+    try {
+      await navigator.clipboard.writeText("23393184");
+
+      alert("Número de cuenta copiado ✨");
+    } catch (err) {
+      console.error("Error al copiar:", err);
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -136,7 +146,6 @@ export default function Home() {
                 <h2 className="font-gistesy text-gold mb-8 text-4xl md:text-6xl">
                   Ariadna Ruibal
                 </h2>
-
               </div>
             </div>
           </section>
@@ -203,6 +212,47 @@ export default function Home() {
                     Azul Marino
                   </span>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* REGALO */}
+          <section className="bg-ivory px-6 py-24">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-navy-light mb-4 text-sm uppercase tracking-[0.3em]">
+                Regalo
+              </p>
+
+              <h2 className="text-gold mb-8 text-4xl font-semibold">
+                Tu presencia es mi mejor regalo ✨
+              </h2>
+
+              <p className="text-navy-soft mx-auto mb-12 max-w-2xl text-lg leading-8">
+                Pero si deseas hacerme un obsequio, puedes colaborar con mi
+                sueño a través de la siguiente cuenta:
+              </p>
+
+              <div className="border-soft mx-auto max-w-xl rounded-3xl border bg-white p-10 shadow-sm">
+                <p className="text-navy-light mb-4 text-2xl font-semibold">
+                  Ariadna Ruibal Prex
+                </p>
+
+                <button
+                  onClick={copyAccount}
+                  className="bg-champagne hover:bg-gold-light/20 group w-full rounded-2xl px-6 py-5 transition-all duration-300"
+                >
+                  <p className="text-navy-light mb-2 text-sm uppercase tracking-[0.2em]">
+                    Cuenta
+                  </p>
+
+                  <p className="text-gold text-3xl tracking-wider transition-all duration-300 group-hover:scale-105">
+                    23393184
+                  </p>
+
+                  <p className="mt-3 text-sm text-gray-500">
+                    Click para copiar
+                  </p>
+                </button>
               </div>
             </div>
           </section>
