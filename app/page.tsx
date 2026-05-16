@@ -1,65 +1,256 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Home() {
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      const newOpacity = Math.max(1 - scrollY / 700, 0);
+
+      setOpacity(newOpacity);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main className="relative font-catchy">
+      {/* VIDEO BACKGROUND */}
+      <div className="fixed inset-0 z-0 overflow-hidden" style={{ opacity }}>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover"
+        >
+          <source src="/bg.mp4" type="video/mp4" />
+        </video>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
+
+      {/* CONTENIDO */}
+      <div className="relative z-10">
+        {/* HERO */}
+        <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 text-center text-white">
+          {/* FLOR SUPERIOR IZQUIERDA */}
+          <Image
+            src="/images/floral-corner.png"
+            alt="Flores decorativas"
+            width={800}
+            height={800}
+            className="absolute left-[-40] top-[-40] w-[260px] md:w-[600px] opacity-80"
+          />
+
+          {/* FLOR INFERIOR DERECHA */}
+          <Image
+            src="/images/floral-corner.png"
+            alt="Flores decorativas"
+            width={800}
+            height={800}
+            className="absolute bottom-[-40] right-[-40] w-[260px] rotate-180 md:w-[600px] opacity-80"
+          />
+
+          {/* CONTENIDO HERO */}
+          <div className="relative z-10">
+            <p className="text-gold-light mb-4 text-sm uppercase tracking-[0.4em]">
+              MIS 15 AÑOS
+            </p>
+
+            <h1 className="font-gistesy text-navy text-7xl leading-[1.2] md:text-9xl">
+              Ariadna
+            </h1>
+
+            <div className="bg-gold-light my-8 mx-auto h-[2px] w-24" />
+
+            <p className="max-w-xl text-xl leading-relaxed text-gray-200 md:text-2xl">
+              Una noche mágica para celebrar juntos ✨
+            </p>
+
+            <p className="mt-10 text-lg text-gray-300">8 de Agosto 2026</p>
+          </div>
+        </section>
+
+        {/* CONTENIDO */}
+        <div className="bg-champagne text-navy relative z-20 rounded-t-[50px]">
+          {/* MENSAJE */}
+          <section className="px-6 py-24">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="text-gold mb-8 text-4xl font-semibold">
+                Te invito
+              </h2>
+
+              <p className="text-navy-soft text-lg leading-8">
+                Hay momentos que soñamos para siempre…
+                <br />
+                y este es uno de ellos.
+                <br />
+                <br />
+                Me haría muy feliz compartir esta noche tan especial con vos ✨
+              </p>
+            </div>
+          </section>
+
+          {/* FOTO ARI */}
+          <section className="bg-champagne px-6 py-24">
+            <div className="mx-auto flex max-w-5xl flex-col items-center gap-16 md:flex-row md:gap-24">
+              {/* FOTO */}
+              <div className="relative">
+                {/* brillo suave */}
+                <div className="bg-gold-light/20 absolute inset-0 scale-110 rounded-full blur-3xl" />
+
+                <Image
+                  src="/images/ariadna.jpg"
+                  alt="Ariadna"
+                  width={300}
+                  height={400}
+                  className="relative z-10 h-[400px] w-[240px] rounded-[50%] border-2 border-[#c6a972] object-cover shadow-2xl"
+                />
+              </div>
+
+              {/* TEXTO */}
+              <div className="max-w-xl text-center md:text-left">
+                <p className="text-gold-light mb-4 text-sm uppercase tracking-[0.3em]">
+                  Una noche especial
+                </p>
+
+                <p className="text-navy-soft text-lg leading-8">
+                  Hay sueños que merecen celebrarse rodeados de las personas más
+                  importantes.
+                  <br />
+                  <br />
+                  Gracias por formar parte de este momento tan especial ✨
+                </p>
+                <br />
+                <br />
+
+                <h2 className="font-gistesy text-navy mb-8 text-4xl md:text-6xl">
+                  Ariadna Ruibal
+                </h2>
+
+              </div>
+            </div>
+          </section>
+
+          {/* INFO */}
+          <section className="bg-ivory px-6 py-24">
+            <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
+              <div className="border-soft rounded-3xl border bg-white p-8 text-center shadow-sm">
+                <h3 className="text-gold mb-4 text-2xl font-semibold">Fecha</h3>
+
+                <p>8 de Agosto 2026</p>
+              </div>
+
+              <div className="border-soft rounded-3xl border bg-white p-8 text-center shadow-sm">
+                <h3 className="text-gold mb-4 text-2xl font-semibold">Hora</h3>
+
+                <p>21:00 hs — 02:00 hs</p>
+              </div>
+
+              <div className="border-soft rounded-3xl border bg-white p-8 text-center shadow-sm">
+                <h3 className="text-gold mb-4 text-2xl font-semibold">Lugar</h3>
+
+                <p>
+                  Salón Carrusel
+                  <br />
+                  Villa Argentina, Canelones
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* DRESS CODE */}
+          <section className="px-6 py-24">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-gold mb-6 text-4xl font-semibold">
+                Dress Code
+              </h2>
+
+              <p className="text-navy-soft mb-12 text-2xl">Semiformal ✨</p>
+
+              <div className="border-soft rounded-3xl border bg-white p-10 shadow-sm">
+                <p className="text-navy-soft mb-8 text-lg leading-8">
+                  Evitar los siguientes colores:
+                </p>
+
+                <div className="flex flex-wrap justify-center gap-4">
+                  <span className="rounded-full bg-[#d4af37] px-5 py-3 text-sm font-medium text-white">
+                    Dorado
+                  </span>
+
+                  <span className="rounded-full bg-[#d6c7b2] px-5 py-3 text-sm font-medium text-navy">
+                    Beige
+                  </span>
+
+                  <span className="rounded-full border border-gray-300 bg-white px-5 py-3 text-sm font-medium text-navy">
+                    Blanco
+                  </span>
+
+                  <span className="rounded-full bg-[#f3e5c8] px-5 py-3 text-sm font-medium text-navy">
+                    Champagne
+                  </span>
+
+                  <span className="bg-navy rounded-full px-5 py-3 text-sm font-medium text-white">
+                    Azul Marino
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* RSVP */}
+          <section className="relative overflow-hidden bg-navy px-6 py-24 text-white">
+            {/* VIDEO FONDO */}
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover opacity-20"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <source src="/bg.mp4" type="video/mp4" />
+            </video>
+
+            {/* OVERLAY NAVY */}
+            <div className="absolute inset-0 bg-navy/80" />
+
+            {/* CONTENIDO */}
+            <div className="relative z-10 mx-auto max-w-2xl text-center">
+              <p className="text-gold-light mb-4 text-sm uppercase tracking-[0.3em]">
+                RSVP
+              </p>
+
+              <h2 className="mb-8 text-4xl font-semibold md:text-5xl">
+                Confirmá tu asistencia
+              </h2>
+
+              <p className="mb-12 text-lg leading-8 text-gray-300">
+                Nos encantaría compartir esta noche tan especial con vos ✨
+                <br />
+                Por favor confirmá tu asistencia completando el formulario.
+              </p>
+
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe8v8m5raQY5A-VfIue1UXf0qJ7s5I2gB6YiDyYUt-v_sQwjg/viewform?usp=publish-editor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gold-light text-navy inline-flex items-center justify-center rounded-full px-10 py-5 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              >
+                Confirmar asistencia
+              </a>
+            </div>
+          </section>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }

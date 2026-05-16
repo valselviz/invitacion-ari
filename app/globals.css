@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* =========================
+   FUENTES
+========================= */
+
+@font-face {
+  font-family: "Gistesy";
+  src: url("../src/fonts/Gistesy.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "CatchyMager";
+  src: url("../src/fonts/CatchyMager.otf") format("opentype");
+}
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+  --background: #f8f4ec;
+  --foreground: #1e2a44;
+
+  --color-gold: #c6a972;
+  --color-gold-light: #e5c992;
+
+  --color-navy: #1e2a44;
+  --color-navy-soft: #3c4863;
+
+  --color-champagne: #f8f4ec;
+  --color-ivory: #fcfaf5;
+
+  --color-border: #e7dcc7;
+}
+
+/* =========================
+   THEME
+========================= */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-sans: "CatchyMager", sans-serif;
+  --font-mono: monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =========================
+   BASE
+========================= */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "CatchyMager", sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================
+   TIPOGRAFÍAS
+========================= */
+
+.font-gistesy {
+  font-family: "Gistesy", cursive;
+}
+
+.font-catchy {
+  font-family: "CatchyMager", sans-serif;
+}
+
+/* =========================
+   COLORES UTILITARIOS
+========================= */
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-gold-light {
+  color: var(--color-gold-light);
+}
+
+.text-navy {
+  color: var(--color-navy);
+}
+
+.text-navy-soft {
+  color: var(--color-navy-soft);
+}
+
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
+.bg-gold-light {
+  background-color: var(--color-gold-light);
+}
+
+.bg-navy {
+  background-color: var(--color-navy);
+}
+
+.bg-champagne {
+  background-color: var(--color-champagne);
+}
+
+.bg-ivory {
+  background-color: var(--color-ivory);
+}
+
+.border-soft {
+  border-color: var(--color-border);
 }
