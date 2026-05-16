@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Invitación Ari ✨
 
-## Getting Started
+Sitio web de invitación de 15 años desarrollado con Next.js, React y Tailwind CSS.
 
-First, run the development server:
+## 🌸 Características
+
+* Hero cinematográfico con video de fondo
+* Efecto fade al hacer scroll
+* Diseño elegante champagne + azul marino
+* Tipografías personalizadas
+* Sección RSVP con Google Forms
+* Diseño responsive
+* Decoraciones florales
+* Estética editorial/luxury
+
+## 🚀 Tecnologías
+
+* Next.js
+* React
+* Tailwind CSS
+* TypeScript
+
+## 📦 Instalación
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir en:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Assets
 
-## Learn More
+Guardar los recursos multimedia en:
 
-To learn more about Next.js, take a look at the following resources:
+```text
+public/
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ejemplos:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+public/bg.mp4
+public/images/floral-corner.png
+public/images/ari-photo.png
+```
 
-## Deploy on Vercel
+## 💌 Evento
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+15 años de Ariadna
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📍 Salón Carrusel — Villa Argentina, Canelones, Uruguay
+🗓️ 8 de Agosto 2026
+🕘 21:00 hs — 02:00 hs
